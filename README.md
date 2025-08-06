@@ -63,16 +63,16 @@ haber problemas.
 
 ### Estructura del proyecto
 Explicacion de ficheros en upPDF/:
-    LICENSE: La licencia
-    README: Este archivo
-    test/: Contiene unos pdf's para probar el programa (Se puede quitar)
-    setup/: Contiene el instalador y desinstalador de las dependencias
+*   LICENSE: La licencia
+*   README: Este archivo
+*   test/: Contiene unos pdf's para probar el programa (Se puede quitar)
+*   setup/: Contiene el instalador y desinstalador de las dependencias
 
-    __init__.py: Para decirle a python que upPDF/ es un paquete
-    main.pyw: Ejecutable principal
-    vista/: Contiene ficheros para el GUI.
-    modelo/: Contiene ficheros para trabajar con datos: pdf's, imagenes...
-    controlador/: Contiene ficheros para comunicar el modelo y la vista
+*   __init__.py: Para decirle a python que upPDF/ es un paquete
+*   main.pyw: Ejecutable principal
+*   vista/: Contiene ficheros para el GUI.
+*   modelo/: Contiene ficheros para trabajar con datos: pdf's, imagenes...
+*   controlador/: Contiene ficheros para comunicar el modelo y la vista
 
-    vista/adjuntos/iconos: Contiene imagenes que se usan como iconos
-    vista/adjuntos/componentes: Contiene ficheros .py que personalizan elementos CTK.
+*   vista/adjuntos/iconos: Contiene imagenes que se usan como iconos
+*   vista/adjuntos/componentes: Contiene ficheros .py que personalizan elementos CTK.
