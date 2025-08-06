@@ -13,7 +13,7 @@ mucho tiempo al usuario editandolos manualmente. Por cada página, el programa p
 *   Filtrar una página para aumentar la nitidez y el contraste.
 *   Saturar la página para tener colores más vivos.
 
-##### Secciones del programa
+#### Secciones del programa
 Una vez ejecutado el programa se pueden ver 5 opciones en el menu:
 
 *   Mejorar: Aplica las operaciones que se deseen a todas las páginas del pdf.
@@ -26,18 +26,18 @@ Una vez ejecutado el programa se pueden ver 5 opciones en el menu:
 Requisitos: Python 3
 Disponibilidad: Multiplataforma (Todos los sistemas operativos)
 
-##### Guía de instalacion
+#### Guía de instalacion
 Clona el repositorio: ` git clone https://github.com/eloyUA/upPDF.git `
 Ponte en el directorio: ` cd upPDF `
 Instala las dependencias: ` python3 setup/instalador.py `
 Ejecuta el programa (Puede tardar un poco): ` python3 main.pyw `
 
-##### Guía de desinstalacion
+#### Guía de desinstalacion
 Ponte en el directorio: ` cd upPDF `
 Desinstala las dependencias: ` python3 setup/desinstalador.py `
 Elimina el directorio ` upPDF `
 
-##### Errores comunes (Windows)
+#### Errores comunes (Windows)
 Hay 2 tipos de dependencias a instalar:
 *   Unas librerías de python (Sin problema, en principio)
 *   Un motor para trabajar con texto en imagenes (Tesseract) (No es libreria, es motor)
