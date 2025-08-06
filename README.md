@@ -33,9 +33,9 @@ Una vez ejecutado el programa se pueden ver 5 opciones en el menu:
 4. Ejecuta el programa (Puede tardar un poco): ` python3 main.pyw `
 
 #### Guía de desinstalacion
-Ponte en el directorio: ` cd upPDF `
-Desinstala las dependencias: ` python3 setup/desinstalador.py `
-Elimina el directorio ` upPDF `
+1. Ponte en el directorio: ` cd upPDF `
+2. Desinstala las dependencias: ` python3 setup/desinstalador.py `
+3. Elimina el directorio ` upPDF `
 
 #### Errores comunes (Windows)
 Hay 2 tipos de dependencias a instalar:
@@ -50,10 +50,10 @@ Todo lo anterior se va a instalar sin problema, pero puede ser que tesseract
 no se agrege a la PATH. Por favor, ejecuta ` where tesseract ` en la terminal,
 si aparece la ruta, perfecto, esta en la PATH, sino modifica el codigo fuente:
 
-    1) Accede al directorio del proyecto.
-    2) Abre modelo/imagen_escaner.py
-    3) Debajo de todas las importaciones de librerias escribe:
-    ``` pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe' ```
+1. Accede al directorio del proyecto.
+2. Abre modelo/imagen_escaner.py
+3. Debajo de todas las importaciones de librerias escribe:
+``` pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe' ```
 
 Con esto ya estaría, prueba a ejecutar el programa. En Linux y Mac no debería de
 haber problemas.
