@@ -1,7 +1,13 @@
-### Tabla de contenidos
-    [1. Información general](#información-general)
-    [2. Instalación y desinstalación](#instalación-y-desinstalación)
+# Tabla de contenidos
+    * [Información general](#información-general)
+    * [Instalación y desinstalación](#instalación-y-desinstalación)
+    * [Estructura del proyecto](#estructura-del-proyecto)
+***
 
-## Información general
+### Información general
+***
 
-## Instalación y desinstalación
+### Instalación y desinstalación
+***
+
+### Estructura del proyecto
