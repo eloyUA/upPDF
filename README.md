@@ -29,7 +29,7 @@ Una vez ejecutado el programa se pueden ver 5 opciones en el menu:
 *   Disponibilidad: Multiplataforma (Todos los sistemas operativos)
 
 #### Guía de instalacion
-1. Clona el repositorio: ` git clone https://github.com/eloyUA/upPDF.git `
+1. Clona el repositorio: ` git clone https://github.com/eloyUA/upPDF `
 2. Ponte en el directorio: ` cd upPDF `
 3. Instala las dependencias: ` python3 setup/instalador.py `
 4. Ejecuta el programa (Puede tardar un poco): ` python3 main.pyw `
