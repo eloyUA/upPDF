@@ -2,6 +2,7 @@
 * [Información general](#información-general)
 * [Instalación y desinstalación](#instalación-y-desinstalación)
 * [Estructura del proyecto](#estructura-del-proyecto)
+***
 
 ### Información general
 Este programa permite combinar y recortar cualquier tipo de pdf y procesar pdf's
@@ -21,6 +22,7 @@ Una vez ejecutado el programa se pueden ver 5 opciones en el menu:
 *   Combinar: Crear un pdf juntando otros pdf's.
 *   Recortar: Crear varios pdf's a partir de un pdf indicando el rango de páginas.
 *   Informacion: El manual de usuario.
+***
 
 ### Instalación y desinstalación
 *   Requisitos: Python 3
@@ -57,6 +59,7 @@ si aparece la ruta, perfecto, esta en la PATH, sino modifica el codigo fuente:
 
 Con esto ya estaría, prueba a ejecutar el programa. En Linux y Mac no debería de
 haber problemas.
+***
 
 ### Estructura del proyecto
 Explicacion de ficheros en upPDF/:
