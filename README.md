@@ -62,6 +62,7 @@ haber problemas.
 ***
 
 ### Estructura del proyecto
+```
 LICENSE               La licencia  
 README                Este archivo  
 test/                 Contiene unos PDF's para probar el programa (se puede quitar)  
@@ -75,3 +76,4 @@ controlador/          Contiene ficheros para comunicar el modelo y la vista
 
 vista/adjuntos/iconos        Contiene imágenes que se usan como iconos  
 vista/adjuntos/componentes   Contiene ficheros .py que personalizan elementos CTK  
+```
