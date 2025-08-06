@@ -46,7 +46,7 @@ Hay 2 tipos de dependencias a instalar:
 
 Para utilizar tesseract con python se necesita la librería ` pytesseract `,
 que se instala con el resto de librerías y en princio no debería de haber
-problema, y el motor Tesseract que lo usa esta librería.
+problema, y el motor ` Tesseract ` que lo usa esta librería.
 
 Todo lo anterior se va a instalar sin problema, pero puede ser que tesseract
 no se agrege a la PATH. Por favor, ejecuta ` where tesseract ` en la terminal,
