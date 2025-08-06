@@ -3,17 +3,17 @@
 * [Instalación y desinstalación](#instalación-y-desinstalación)
 * [Estructura del proyecto](#estructura-del-proyecto)
 
-## Información general
+### Información general
 Este programa permite combinar y recortar cualquier tipo de pdf y procesar pdf's
 generados por impresoras con escaneres para dejarlos de forma correcta y ahorrar
 mucho tiempo al usuario editandolos manualmente. Por cada página, el programa puede:
 
 *   Detectar y recortar bordes automaticamente.
-*   Detectar si la pagina esta invertida en el eje x, en el y o en ambos y corregirlo.
+*   Detectar si la pagina esta invertida en el eje x, en el y, o en ambos, y corregirlo.
 *   Filtrar una página para aumentar la nitidez y el contraste.
 *   Saturar la página para tener colores más vivos.
 
-### Secciones del programa
+##### Secciones del programa
 Una vez ejecutado el programa se pueden ver 5 opciones en el menu:
 
 *   Mejorar: Aplica las operaciones que se deseen a todas las páginas del pdf.
@@ -22,22 +22,22 @@ Una vez ejecutado el programa se pueden ver 5 opciones en el menu:
 *   Recortar: Crear varios pdf's a partir de un pdf indicando el rango de páginas.
 *   Informacion: El manual de usuario.
 
-## Instalación y desinstalación
+### Instalación y desinstalación
 Requisitos: Python 3
 Disponibilidad: Multiplataforma (Todos los sistemas operativos)
 
-### Guía de instalacion
+##### Guía de instalacion
 Clona el repositorio: ` git clone https://github.com/eloyUA/upPDF.git `
 Ponte en el directorio: ` cd upPDF `
 Instala las dependencias: ` python3 setup/instalador.py `
 Ejecuta el programa (Puede tardar un poco): ` python3 main.pyw `
 
-### Guía de desinstalacion
+##### Guía de desinstalacion
 Ponte en el directorio: ` cd upPDF `
 Desinstala las dependencias: ` python3 setup/desinstalador.py `
 Elimina el directorio ` upPDF `
 
-### Errores comunes (Windows)
+##### Errores comunes (Windows)
 Hay 2 tipos de dependencias a instalar:
 *   Unas librerías de python (Sin problema, en principio)
 *   Un motor para trabajar con texto en imagenes (Tesseract) (No es libreria, es motor)
@@ -58,7 +58,7 @@ si aparece la ruta, perfecto, esta en la PATH, sino modifica el codigo fuente:
 Con esto ya estaría, prueba a ejecutar el programa. En Linux y Mac no debería de
 haber problemas.
 
-## Estructura del proyecto
+### Estructura del proyecto
 Explicacion de ficheros en upPDF/:
     LICENSE: La licencia
     README: Este archivo
