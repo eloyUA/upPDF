@@ -1,0 +1,103 @@
+ÍNDICE:
+    1. Introducción.
+    2. Mejorar.
+    3. Editar.
+    4. Combinar.
+    5. Recortar.
+    6. Posibles errores.
+    
+1. INTRODUCCIÓN.
+   El siguiente programa sirve para mejorar manual o automaticamente
+   pdf's que hallan sido escaneados de las páginas de libros o fichas.
+   Asimismo, también ofrece la posibilidad de recortar y combinar pdf's
+   que hallan y no hallan sido escaneados, es decir, cualquier tipo de Pdf.
+   Cabe destacar que en las páginas de los Pdf's que han sido escaneados
+   contienen una imagen que ocupa toda la hoja, por ello en las siguientes
+   explicaciones se emplea el término "imágen" para referirse a una pagina
+   de un Pdf.
+
+2. MEJORAR.
+   En esta primera opción el programa aplica las opciones marcadas a
+   todas las paginas del pdf, siendo estas las siguientes:
+
+      - RECORTE DE BORDES: El programa ve si la imagen tiene bordes y, en
+      ese caso, los quita recortandolos de la imagen.
+      
+      - INVERSIÓN DE LAS IMAGENES: Puede ser que la imagen este de
+      forma correcta o, que este reflejada de forma horizontal o de forma
+      vertical o de ambas formas. El algoritmo lo detecta y deja la imagen
+      bien.
+      (Es el proceso que más tarda).
+      
+      - FILTRADO DE LAS IMAGENES: Se encarga de aumentar la nitidez y el
+      contraste de la imagen.
+      
+      - SATURACIÓN DEL COLOR: Satura los colores de la imagen en un 25%,
+      esto ayuda a que los colores se vean más vivos.
+
+   Detalles:
+     - El Pdf final estará en la misma carpeta que el Pdf introducido con
+     el mismo nombre, pero añadiendo al final de este "(Mejorado)". Y si se
+     vuelve a mejorar algún Pdf que ya lo ha sido y que por lo tanto ya
+     tiene al final "(Mejorado)", también se le añadirá otro "(Mejorado)"
+     porque sería el resultado del resultado y así sucesivamente.
+
+     - El Pdf introducido no se modificará, solo se creará uno nuevo con
+     los cambios.
+
+3. EDITAR.
+   En esta segunda opción, la forma de introducir y ver el pdf es como
+   en la opción de mejora, simplemente en esta lo que cambia es que la
+   edición es manual, ya que se van introduciendo las opciones que se
+   deseen página por página.
+   Con respecto a las opciones, estas son las mismas que la seccion de
+   mejorar y tienen el mismo funcionamiento, aunque hay una extra,
+   eliminar pagina.
+
+   DETALLES:
+     - El Pdf final estará en la misma carpeta que el Pdf introducido con
+     el mismo nombre, pero añadiendo al final de este "(Editado)". Y si se
+     vuelve a mejorar algún Pdf que ya lo ha sido y que por lo tanto ya
+     tiene al final "(Editado)", también se le añadirá otro "(Editado)"
+     porque sería el resultado del resultado y así sucesivamente.
+
+     - El Pdf introducido no se modificará, solo se creará uno nuevo con
+     los cambios.
+
+4. COMBINAR.
+   En dicha opción existen 3 botones, el primero de ellos tiene como
+   texto "+" que sirve para añadir un pdf, posteriormente está el botón
+   "combinar" que se activa cuando hay más de 1 pdf introducido y en
+   último lugar el botón "eliminar" que elimina el último pdf introducido,
+   de abajo a arriba.
+
+   DETALLES:
+     - Esta opción sirve para cualquier tipo de pdf independientemente de
+       que alguno de los introducidos no halla sido escaneado.
+
+5. RECORTAR.
+   En esta opción final, hay un primer botón para elegir un pdf, abajo esta
+   la zona de recorte, abajo a la izquierda la zona para agregar un recorte
+   (Desde) (Hasta) (+), y otra zona a la derecha para comenzar con los
+   recortes o para eliminar el ultimo recorte.
+   Ejemplo de uso:
+      - Pdf inicial de 10 paginas.
+      - Agregamos recorte desde la 1 hasta la 3.
+      - Agregamos recorte desde la 6 hasta la 10.
+      - Agregamos recorte desde la 2 hasta la 9.
+      
+      El programa no modifica el pdf inicial, sino que crea otros 3 pdf's:
+         - Un pdf con las paginas 1, 2, 3.
+         - Otro con las paginas 6, 7, 8, 9, 10.
+         - Y otro con las paginas 2, 3, 4, 5, 6, 7, 8, 9
+
+   DETALLES:
+    - Esta opción sirve para cualquier tipo de pdf independientemente de
+      que alguno de los introducidos no halla sido escaneado.
+      
+    - Los pdf's aparecen en la misma carpeta que el pdf introducido junto
+      con el rango de páginas que representan.
+
+6. POSIBLES ERRORES
+   - El programa no detecta bien las paginas en horizontal, por lo que las
+     dejará en vertical.
