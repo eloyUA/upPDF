@@ -18,19 +18,19 @@ Una vez ejecutado el programa se pueden ver 5 opciones en el menu:
 
 *   Mejorar: Aplica las operaciones que se deseen a todas las páginas del pdf.
 *   Editar: Aplica las operaciones que se deseen a la pagina indicada.
-*   Combinar: Juntar varios pdf's en uno solo.
+*   Combinar: Crear un pdf juntando otros pdf's.
 *   Recortar: Crear varios pdf's a partir de un pdf indicando el rango de páginas.
 *   Informacion: El manual de usuario.
 
 ### Instalación y desinstalación
-Requisitos: Python 3
-Disponibilidad: Multiplataforma (Todos los sistemas operativos)
+*   Requisitos: Python 3
+*   Disponibilidad: Multiplataforma (Todos los sistemas operativos)
 
 #### Guía de instalacion
-Clona el repositorio: ` git clone https://github.com/eloyUA/upPDF.git `
-Ponte en el directorio: ` cd upPDF `
-Instala las dependencias: ` python3 setup/instalador.py `
-Ejecuta el programa (Puede tardar un poco): ` python3 main.pyw `
+1. Clona el repositorio: ` git clone https://github.com/eloyUA/upPDF.git `
+2. Ponte en el directorio: ` cd upPDF `
+3. Instala las dependencias: ` python3 setup/instalador.py `
+4. Ejecuta el programa (Puede tardar un poco): ` python3 main.pyw `
 
 #### Guía de desinstalacion
 Ponte en el directorio: ` cd upPDF `
