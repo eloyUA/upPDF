@@ -40,12 +40,12 @@ Una vez ejecutado el programa se pueden ver 5 opciones en el menu:
 1. Clona el repositorio: ` git clone https://github.com/eloyUA/upPDF `
 2. Ponte en el directorio: ` cd upPDF `
 3. Instala las dependencias: ` python3 setup/instalador_dep.py `
-4. Ejecuta el programa (Puede tardar un poco): ` python3 __main__.pyw `
+4. Ejecuta el programa (Puede tardar un poco): ` python3 src/__main__.pyw `
 
 Nota: Si hay algun error, prueba a crear un entorno virtual en la carpeta raíz del 
 proyecto ` python3 -m venv __venv__ `, luego vuelve a instalar las dependencias con
 el entorno virtual ` __venv__/bin/python3 setup/instalador_dep.py ` y ejecuta el
-programa con ` __venv__/bin/python3 __main__.pyw `
+programa con ` __venv__/bin/python3 src/__main__.pyw `
 
 Nota: En linux al crear un entorno virtual el ejecutable de python3 esta en ` __venv__/bin `,
 esto en Windows y Mac puede ser diferente pero tiene que estar en algun directorio dentro de
