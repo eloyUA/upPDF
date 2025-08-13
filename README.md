@@ -24,12 +24,12 @@ Una vez ejecutado el programa se pueden ver 5 opciones en el menu:
 *   Informacion: El manual de usuario.
 
 <p align="center">
-    <img src="imagenes/img-mejorar.png" width="300"/>
-    <img src="imagenes/img-editar.png" width="300"/>
-    <img src="imagenes/img-combinar.png" width="300"/>
-    <img src="imagenes/img-recortar.png" width="300"/>
-    <img src="imagenes/img-manual.png" width="300"/>
+    <img src="imagenes/img-mejorar.png" width="500"/>
+    <img src="imagenes/img-editar.png" width="500"/>
+    <img src="imagenes/img-combinar.png" width="500"/>
+    <img src="imagenes/img-recortar.png" width="500"/>
 </p>
+
 ***
 
 ### Instalación y desinstalación
