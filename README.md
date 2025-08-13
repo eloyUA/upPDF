@@ -22,6 +22,14 @@ Una vez ejecutado el programa se pueden ver 5 opciones en el menu:
 *   Combinar: Crear un pdf juntando otros pdf's.
 *   Recortar: Crear varios pdf's a partir de un pdf indicando el rango de páginas.
 *   Informacion: El manual de usuario.
+
+<p align="center">
+    <img src="imagenes/img-mejorar.png" width="300"/>
+    <img src="imagenes/img-editar.png" width="300"/>
+    <img src="imagenes/img-combinar.png" width="300"/>
+    <img src="imagenes/img-recortar.png" width="300"/>
+    <img src="imagenes/img-manual.png" width="300"/>
+</p>
 ***
 
 ### Instalación y desinstalación
@@ -31,12 +39,21 @@ Una vez ejecutado el programa se pueden ver 5 opciones en el menu:
 #### Guía de instalacion
 1. Clona el repositorio: ` git clone https://github.com/eloyUA/upPDF `
 2. Ponte en el directorio: ` cd upPDF `
-3. Instala las dependencias: ` python3 setup/instalador.py `
-4. Ejecuta el programa (Puede tardar un poco): ` python3 main.pyw `
+3. Instala las dependencias: ` python3 setup/instalador_dep.py `
+4. Ejecuta el programa (Puede tardar un poco): ` python3 __main__.pyw `
+
+Nota: Si hay algun error, prueba a crear un entorno virtual en la carpeta raíz del 
+proyecto ` python3 -m venv __venv__ `, luego vuelve a instalar las dependencias con
+el entorno virtual ` __venv__/bin/python3 setup/instalador_dep.py ` y ejecuta el
+programa con ` __venv__/bin/python3 __main__.pyw `
+
+Nota: En linux al crear un entorno virtual el ejecutable de python3 esta en ` __venv__/bin `,
+esto en Windows y Mac puede ser diferente pero tiene que estar en algun directorio dentro de
+` __venv__ `
 
 #### Guía de desinstalacion
 1. Ponte en el directorio: ` cd upPDF `
-2. Desinstala las dependencias: ` python3 setup/desinstalador.py `
+2. Desinstala las dependencias: ` python3 setup/desinstalador_dep.py `
 3. Elimina el directorio ` upPDF `
 
 #### Errores comunes (Windows)
@@ -53,7 +70,7 @@ no se agrege a la PATH. Por favor, ejecuta ` where tesseract ` en la terminal,
 si aparece la ruta, perfecto, esta en la PATH, sino modifica el codigo fuente:
 
 1. Accede al directorio del proyecto.
-2. Abre modelo/imagen_escaner.py
+2. Abre src/modelo/imagen_escaner.py
 3. Debajo de todas las importaciones de librerias escribe:
 ``` pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe' ```
 
@@ -65,15 +82,16 @@ haber problemas.
 ```
 LICENSE               La licencia  
 README                Este archivo  
-test/                 Contiene unos PDF's para probar el programa (se puede quitar)  
-setup/                Contiene el instalador y desinstalador de las dependencias  
+pdfs_ej/              Contiene unos PDF's para probar el programa (se puede eliminar)  
+setup/                Contiene el instalador y desinstalador de las dependencias
+src/                  Contiene el codigo fuente del proyecto
 
-__init__.py           Para decirle a Python que upPDF/ es un paquete  
-main.pyw              Ejecutable principal  
-vista/                Contiene ficheros para el GUI  
-modelo/               Contiene ficheros para trabajar con datos: PDF's, imágenes...  
-controlador/          Contiene ficheros para comunicar el modelo y la vista  
+src/__init__.py           Para decirle a Python que upPDF/src/ es un paquete  
+src/__main__.pyw          Ejecutable principal  
+src/vista/                Contiene ficheros para el GUI  
+src/modelo/               Contiene ficheros para trabajar con datos: PDF's, imágenes...  
+src/controlador/          Contiene ficheros para comunicar el modelo y la vista  
 
-vista/adjuntos/iconos        Contiene imágenes que se usan como iconos  
-vista/adjuntos/componentes   Contiene ficheros .py que personalizan elementos CTK  
+src/vista/adjuntos/iconos        Contiene imágenes que se usan como iconos  
+src/vista/adjuntos/componentes   Contiene ficheros .py que personalizan elementos CTK  
 ```

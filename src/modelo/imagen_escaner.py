@@ -8,6 +8,8 @@ from math import sqrt
 from PIL import Image, ImageEnhance
 from modelo.errores import ErrorImagenEscanerRGBA
 
+# pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+
 class ImagenEscaner():
     def __init__(self, pix: Pixmap):
         """ Requisito: Que no sea RGBA """
