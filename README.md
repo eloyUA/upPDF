@@ -23,6 +23,11 @@ Una vez ejecutado el programa se pueden ver 5 opciones en el menu:
 *   Recortar: Crear varios pdf's a partir de un pdf indicando el rango de páginas.
 *   Informacion: El manual de usuario.
 
+![img-mejorar](imagenes/img-mejorar.png)
+![img-editar](imagenes/img-editar.png)
+![img-combinar](imagenes/img-combinar.png)
+![img-recortar](imagenes/img-recortar.png)
+
 <p align="center">
     <img src="imagenes/img-mejorar.png" width="500"/>
     <img src="imagenes/img-editar.png" width="500"/>
