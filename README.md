@@ -56,6 +56,9 @@ esto en Windows y Mac puede ser diferente pero tiene que estar en algun director
 2. Desinstala las dependencias: ` python3 setup/desinstalador_dep.py `
 3. Elimina el directorio ` upPDF `
 
+Nota: Si usaste un entorno virtual anteriormente, ejecuta el desinstalador con ese entorno
+virtual.
+
 #### Errores comunes (Windows)
 Hay 2 tipos de dependencias a instalar:
 *   Unas librerías de python (Sin problema, en principio)
