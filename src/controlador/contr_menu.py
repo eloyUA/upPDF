@@ -25,29 +25,28 @@ class ControladorMenu:
         if self.__vista_actual == vista_destino:
             return
         
-        puntero = self.__vista_menu.get_puntero()
         if isinstance(vista_destino, VistaMejorar):
-            puntero.mover_a_btn_mejorar()
+            self.__vista_menu.mover_puntero('mejorar')
             self.__vista_actual.hacer_invisible()
             self.__vista_mejorar.hacer_visible()
             self.__vista_actual = self.__vista_mejorar
         elif isinstance(vista_destino, VistaEditar):
-            puntero.mover_a_btn_editar()
+            self.__vista_menu.mover_puntero('editar')
             self.__vista_actual.hacer_invisible()
             self.__vista_editar.hacer_visible()
             self.__vista_actual = self.__vista_editar
         elif isinstance(vista_destino, VistaCombinar):
-            puntero.mover_a_btn_combinar()
+            self.__vista_menu.mover_puntero('combinar')
             self.__vista_actual.hacer_invisible()
             self.__vista_combinar.hacer_visible()
             self.__vista_actual = self.__vista_combinar
         elif isinstance(vista_destino, VistaRecortar):
-            puntero.mover_a_btn_recortar()
+            self.__vista_menu.mover_puntero('recortar')
             self.__vista_actual.hacer_invisible()
             self.__vista_recortar.hacer_visible()
             self.__vista_actual = self.__vista_recortar
         elif isinstance(vista_destino, VistaInfo):
-            puntero.mover_a_btn_info()
+            self.__vista_menu.mover_puntero('info')
             self.__vista_actual.hacer_invisible()
             self.__vista_info.hacer_visible()
             self.__vista_actual = self.__vista_info

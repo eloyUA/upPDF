@@ -6,31 +6,30 @@ from customtkinter import CTkButton
 
 from vista.componentes.frame_seccion import FrameSeccion
 from vista.config_vista import ConfigVista
+
 from controlador.contr_combinar import ControladorCombinar
 
 class VistaCombinar(FrameSeccion):
     def __init__(self, ventana: CTk):
         super().__init__(ventana, titulo='Combinación de diversos Pdf\'s')
 
-        self.__ventana = ventana
         self.__config = ConfigVista()
         self.__controlador = None
-
-        # Array para almacenar los CTkLabel con los nombres de los pfds a combinar
-        self.__etqs_nombres_pdfs = []
+        
+        self.__ctkLabels_nombres_pdfs = []
 
     def cargar_controlador(self, controlador: ControladorCombinar) -> None:
         self.__controlador = controlador
 
     def cargar_elementos(self) -> None:
         """ Requisitos: Se ha tenido que cargar el controlador """
-        self.__cargar_frame_pdfs()
+        self.__cargar_frame_mostrador_pdfs()
         self.__cargar_btn_anadir()
         self.__cargar_btn_combinar()
         self.__cargar_btn_eliminar()
         self.poner_estado_por_defecto()
 
-    def __cargar_frame_pdfs(self) -> None:
+    def __cargar_frame_mostrador_pdfs(self) -> None:
         self.__frame_pdfs = CTkFrame(
             master=self,
             corner_radius=15,
@@ -99,8 +98,7 @@ class VistaCombinar(FrameSeccion):
 
     # Metodos para añadir y eliminar pdfs a la zona de trabajo
     def agregar_pdf(self, nombre_pdf: str) -> None:
-        """ Se añade una caja con el nombre del pdf en el frame """
-        indice = len(self.__etqs_nombres_pdfs) + 1
+        indice = len(self.__ctkLabels_nombres_pdfs) + 1
         etq = CTkLabel(
             master=self.__scrodable_frame_pdfs,
             width=400,
@@ -112,13 +110,12 @@ class VistaCombinar(FrameSeccion):
             font=(self.__config.TIPO_LETRA, 12)
         )
         etq.pack(padx=20, pady=10)
-        self.__etqs_nombres_pdfs.append(etq)
+        self.__ctkLabels_nombres_pdfs.append(etq)
 
     def quitar_ultimo_pdf(self) -> None:
-        """ Se quita del frame la caja del ultimo pdf agregado """
-        if len(self.__etqs_nombres_pdfs) == 0:
+        if len(self.__ctkLabels_nombres_pdfs) == 0:
             return
-        etq = self.__etqs_nombres_pdfs.pop(-1)
+        etq = self.__ctkLabels_nombres_pdfs.pop(-1)
         etq.destroy()
 
     # Metodos para habilitar los botones

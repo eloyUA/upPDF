@@ -9,8 +9,10 @@ from vista.config_vista import ConfigVista
 class VistaInfo(FrameSeccion):
     def __init__(self, ventana: CTk):
         super().__init__(ventana, 'Manual de instrucciones')
+        
+        self.__cargar_rutas()
 
-        self.__ventana = ventana
+    def __cargar_rutas(self) -> None:
         self.__RUTA_MANUAL = ConfigVista().RUTA_ABS_PROGRAMA
         self.__RUTA_MANUAL += '/vista/adjuntos/manual/instrucciones.txt'
 
@@ -38,9 +40,8 @@ class VistaInfo(FrameSeccion):
                                         relwidth=0.97, relheight=0.97)
         
     def __cargar_texto(self) -> None:
-        with open(self.__RUTA_MANUAL, 'r', encoding='utf-8') as f:
-            texto = f.read()
-
+        texto = self.__obtener_texto_archivo_manual()
+        
         self.__etq_texto = CTkLabel(
             master=self.__scrodable_frame_info,
             text=texto,
@@ -50,3 +51,9 @@ class VistaInfo(FrameSeccion):
             justify='left'
         )
         self.__etq_texto.pack()
+
+    def __obtener_texto_archivo_manual(self) -> str:
+        texto = ''
+        with open(self.__RUTA_MANUAL, 'r', encoding='utf-8') as f:
+            texto = f.read()
+        return texto

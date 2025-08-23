@@ -6,12 +6,13 @@ from vista.config_vista import ConfigVista
 
 class FrameSeccion(CTkFrame):
     def __init__(self, ventana: CTk, titulo: str | None=None) -> None:
-        
         super().__init__(
             master=ventana,
             fg_color='transparent'
         )
+        self.__establecer_titulo(titulo)
 
+    def __establecer_titulo(self, titulo: str | None=None) -> None:
         if titulo != None:
             self.__titulo = CTkLabel(
                 master=self,

@@ -6,12 +6,12 @@ from customtkinter import CTkProgressBar
 
 from vista.componentes.frame_seccion import FrameSeccion
 from vista.config_vista import ConfigVista
+
 from controlador.contr_mejorar import ControladorMejorar
 class VistaMejorar(FrameSeccion):
     def __init__(self, ventana: CTk):
         super().__init__(ventana, titulo='Mejorar automáticamente el Pdf')
 
-        self.__ventana = ventana
         self.__config = ConfigVista()
         self.__controlador = None
 
@@ -138,7 +138,7 @@ class VistaMejorar(FrameSeccion):
         self.__btn_invertir.deselect()
         self.__btn_saturar.deselect()
 
-    # Metodos controlar la progress bar
+    # Metodos para controlar la progress bar
     def hacer_visible_barra_progreso(self) -> None:
         self.__barra_progreso.set(0)
         self.__barra_progreso.place(relx=0.63, rely=0.89)

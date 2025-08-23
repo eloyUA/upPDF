@@ -1,5 +1,5 @@
 from PIL import Image
-import os
+
 from customtkinter import CTk
 from customtkinter import CTkFrame
 from customtkinter import CTkImage
@@ -8,6 +8,7 @@ from customtkinter import CTkLabel
 
 from vista.componentes.puntero_menu import PunteroMenu
 from vista.config_vista import ConfigVista
+
 from controlador.contr_menu import ControladorMenu
 
 class VistaMenu(CTkFrame):
@@ -22,9 +23,13 @@ class VistaMenu(CTkFrame):
         )
         self.place(relx=0.05, rely=0.11)
 
-        self.__ventana = ventana
         self.__config = ConfigVista()
         self.__controlador_menu = None
+        self.__cargar_rutas()
+
+    def __cargar_rutas(self) -> None:
+        self.__RUTA_ICONO_LOGO_PROGRAMA = '/vista/adjuntos/iconos/'
+        self.__RUTA_ICONO_LOGO_PROGRAMA += 'logo_programa.png'
 
     def cargar_controlador(self, controlador: ControladorMenu) -> None:
         self.__controlador_menu = controlador
@@ -40,15 +45,18 @@ class VistaMenu(CTkFrame):
         self.__cargar_puntero()
 
     def __cargar_logo(self):
+        logo_img = self.__obtener_icono_logo_programa()
+        self.__logo_etq = CTkLabel(master=self, image=logo_img, text=None)
+        self.__logo_etq.pack(pady=20, padx=20)
+
+    def __obtener_icono_logo_programa(self) -> CTkImage:
         ruta_img = self.__config.RUTA_ABS_PROGRAMA
-        ruta_img += '/vista/adjuntos/iconos/logo_programa.png'
-        logo_img = CTkImage(
+        ruta_img += self.__RUTA_ICONO_LOGO_PROGRAMA
+        return CTkImage(
             light_image=Image.open(ruta_img),
             dark_image=Image.open(ruta_img),
             size=(160, 100)
         )
-        self.__logo_etq = CTkLabel(master=self, image=logo_img, text=None)
-        self.__logo_etq.pack(pady=20, padx=20)
 
     def __cargar_btn_mejorar(self):
         self.__btn_mejorar = CTkButton(
@@ -119,5 +127,17 @@ class VistaMenu(CTkFrame):
         self.__puntero = PunteroMenu(self)
         self.__puntero.mover_a_btn_mejorar()
 
-    def get_puntero(self) -> PunteroMenu:
-        return self.__puntero
+    # Métodos para controlar el puntero
+    def mover_puntero(self, sitio: str) -> None:
+        """ sitio: 'mejorar', 'editar', 'combinar', 'recortar', 'info' """
+        match sitio:
+            case 'mejorar':
+                self.__puntero.mover_a_btn_mejorar()
+            case 'editar':
+                self.__puntero.mover_a_btn_editar()
+            case 'combinar':
+                self.__puntero.mover_a_btn_combinar()
+            case 'recortar':
+                self.__puntero.mover_a_btn_recortar()
+            case 'info':
+                self.__puntero.mover_a_btn_info()

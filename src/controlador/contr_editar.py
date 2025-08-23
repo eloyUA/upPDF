@@ -4,7 +4,9 @@ from enum import Enum
 
 from vista.visor_pdf import VisorPdf
 from vista.visor_pdf_eventos import EventosVisorPdf
+
 from controlador.contr_visor_pdf import ControladorVisorPdf
+
 from modelo.pdf_escaner_esc import PdfEscanerEscritura
 
 class Opcion(Enum):
@@ -17,22 +19,24 @@ class Opcion(Enum):
 class ControladorEditar(EventosVisorPdf):
     def __init__(self, vista_editar) -> None:
         self.__vista_editar = vista_editar
-        self.__visor_pdf = VisorPdf(vista_editar)
+        self.__cargar_visor_pdf()
+        self.__cargar_sistema_concurrente()
+
+        self.__modificaciones = []
+        
+    def __cargar_visor_pdf(self) -> None:
+        self.__visor_pdf = VisorPdf(self.__vista_editar)
         self.__controlador_visor = ControladorVisorPdf(self.__visor_pdf, self)
         self.__visor_pdf.cargar_controlador(self.__controlador_visor)
         self.__visor_pdf.cargar_elementos()
 
-        # Atributo para saber que opciones tiene activada una pagina
-        self.__modificaciones = []
-        
-        # Atributos para controlar el procesamiento del pdf
+    def __cargar_sistema_concurrente(self) -> None:
         self.__hilo = None
         self.__procesando_pdf = False
         self.__señal_detener_hilo = threading.Event()
         self.__semaforo = threading.Semaphore(1)
 
-    def __cargar_modificaciones(self) -> None:
-        """ Se cargan las modificaciones por defecto (ninguna) para cada pagina """
+    def __cargar_modificaciones_por_defecto(self) -> None:
         self.__modificaciones.clear()
         for i in range(self.__controlador_visor.get_pdf().num_pag_totales()):
             self.__modificaciones.append({
@@ -97,7 +101,7 @@ class ControladorEditar(EventosVisorPdf):
             if self.__procesando_pdf:
                 self.__señal_detener_hilo.set()
 
-        self.__cargar_modificaciones()
+        self.__cargar_modificaciones_por_defecto()
         self.__vista_editar.actualizar_texto_opciones(1)
         self.__vista_editar.habilitar_botones()
         self.__vista_editar.poner_estado_botones_por_defecto()

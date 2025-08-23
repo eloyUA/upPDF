@@ -10,6 +10,7 @@ from customtkinter import CTkImage
 
 from vista.componentes.frame_seccion import FrameSeccion
 from vista.config_vista import ConfigVista
+
 from controlador.contr_recortar import ControladorRecortar
 
 class VistaRecortar(FrameSeccion):
@@ -20,8 +21,13 @@ class VistaRecortar(FrameSeccion):
         self.__config = ConfigVista()
         self.__controlador = None
 
-        # Atributo que contiene todos los CTkLabel de cada recorte
-        self.__etqs_recortes = []
+        self.__ctkLabels_recorte = []
+        self.__cargar_rutas()
+
+    def __cargar_rutas(self) -> None:
+        self.__RUTA_RELATIVA_ICONO_PDF = '/vista/adjuntos/iconos/icono_pdf.png'
+        self.__RUTA_RELATIVA_BTN_ELIMINAR = '/vista/adjuntos/iconos/'
+        self.__RUTA_RELATIVA_BTN_ELIMINAR += 'btn_eliminar_pdf.png'
 
     def cargar_controlador(self, controlador: ControladorRecortar) -> None:
         self.__controlador = controlador
@@ -30,8 +36,8 @@ class VistaRecortar(FrameSeccion):
         """ Requisitos: Se ha tenido que cargar el controlador """
         self.__cargar_btn_archivo()
         self.__cargar_btn_eliminar_archivo()
-        self.__cargar_frame_recortes()
-        self.__cargar_subtitulo()
+        self.__cargar_frame_mostrar_recortes()
+        self.__cargar_titulo_frame_mostrar_recortes()
         self.__cargar_btn_agregar_recorte()
         self.__cargar_caja_texto_desde()
         self.__cargar_caja_texto_hasta()
@@ -56,14 +62,12 @@ class VistaRecortar(FrameSeccion):
         self.__btn_archivo.configure(cursor='hand2')
 
     def __cargar_btn_eliminar_archivo(self) -> None:
-        ruta_icono = self.__config.RUTA_ABS_PROGRAMA
-        ruta_icono += '/vista/adjuntos/iconos/icono_pdf.png'
-        img_indicador_pdf = CTkImage(
-            light_image=Image.open(ruta_icono),
-            dark_image=Image.open(ruta_icono),
-            size=(35, 35)
-        )
-        self.__indicador_pdf = CTkLabel(
+        self.__cargar_etq_icono_indicardor_pdf()
+        self.__cargar_btn_eliminar()
+
+    def __cargar_etq_icono_indicardor_pdf(self) -> None:
+        img_indicador_pdf = self.__obtener_icono_indicador_pdf()
+        self.__etq_icono_indicador_pdf = CTkLabel(
             master=self,
             width=35,
             height=35,
@@ -71,13 +75,17 @@ class VistaRecortar(FrameSeccion):
             image=img_indicador_pdf
         )
 
-        ruta_btn_elim = self.__config.RUTA_ABS_PROGRAMA
-        ruta_btn_elim += '/vista/adjuntos/iconos/btn_eliminar_pdf.png'
-        img_eliminar = CTkImage(
-            light_image=Image.open(ruta_btn_elim),
-            dark_image=Image.open(ruta_btn_elim),
-            size=(45, 20)
+    def __obtener_icono_indicador_pdf(self) -> CTkImage:
+        ruta_icono = self.__config.RUTA_ABS_PROGRAMA
+        ruta_icono += self.__RUTA_RELATIVA_ICONO_PDF
+        return CTkImage(
+            light_image=Image.open(ruta_icono),
+            dark_image=Image.open(ruta_icono),
+            size=(35, 35)
         )
+
+    def __cargar_btn_eliminar(self) -> None:
+        img_eliminar = self.__obtener_icono_btn_eliminar()
         self.__btn_eliminar_pdf = CTkButton(
             master=self,
             width=45,
@@ -92,7 +100,16 @@ class VistaRecortar(FrameSeccion):
         )
         self.__btn_eliminar_pdf.configure(cursor='hand2')
 
-    def __cargar_frame_recortes(self) -> None:
+    def __obtener_icono_btn_eliminar(self) -> CTkImage:
+        ruta_btn_elim = self.__config.RUTA_ABS_PROGRAMA
+        ruta_btn_elim += self.__RUTA_RELATIVA_BTN_ELIMINAR
+        return CTkImage(
+            light_image=Image.open(ruta_btn_elim),
+            dark_image=Image.open(ruta_btn_elim),
+            size=(45, 20)
+        )
+
+    def __cargar_frame_mostrar_recortes(self) -> None:
         self.__frame_recortes = CTkFrame(
             master=self,
             corner_radius=15,
@@ -110,7 +127,7 @@ class VistaRecortar(FrameSeccion):
         self.__scrodable_frame_recortes.place(relx=0.03, rely=0.15,
                                         relwidth=0.96, relheight=0.6)
         
-    def __cargar_subtitulo(self) -> None:
+    def __cargar_titulo_frame_mostrar_recortes(self) -> None:
         self.__titulo_div_pags = CTkLabel(
             master=self.__frame_recortes,
             text_color='#ccc',
@@ -197,7 +214,6 @@ class VistaRecortar(FrameSeccion):
 
     # Metodos para agregar o quitar recortes
     def agregar_recorte(self, ini: int, fin: int) -> None:
-        """ Se añade una caja en el frame con los datos del recorte """
         etq = CTkLabel(
             master=self.__scrodable_frame_recortes,
             width=145,
@@ -208,12 +224,14 @@ class VistaRecortar(FrameSeccion):
             text_color='#bbb',
             font=(self.__config.TIPO_LETRA, 11)
         )
-        long = len(self.__etqs_recortes)
+        long = len(self.__ctkLabels_recorte)
         etq.grid(row=(long) // 3, column=(long) % 3,
                 pady=(10, 0), padx=(5, 10))
-        self.__etqs_recortes.append(etq)
+        self.__ctkLabels_recorte.append(etq)
 
-        # Se resetea la informacion de las cajas de texto desde y hasta
+        self.__resetear_info_cajas_texto()
+
+    def __resetear_info_cajas_texto(self) -> None:
         self.__caja_texto_desde.delete(0, 'end')
         self.__caja_texto_desde._activate_placeholder()
         self.__ventana.focus_force()
@@ -223,37 +241,13 @@ class VistaRecortar(FrameSeccion):
         self.__ventana.focus_force()
 
     def quitar_ultimo_recorte(self) -> None:
-        """ Se quita la caja del ultimo recorte en el frame """
-        if len(self.__etqs_recortes) == 0:
+        if len(self.__ctkLabels_recorte) == 0:
             return
         
-        etq = self.__etqs_recortes.pop(-1)
+        etq = self.__ctkLabels_recorte.pop(-1)
         etq.destroy()
 
-    # Metodos para controlar el texto del boton buscar archivo
-    def poner_nombre_pdf_btn_buscar_archivo(self, nombre_pdf: str) -> None:
-        """
-            El texto del boton para buscar el pdf se sustituye por el
-            argumento nombre_pdf
-        """
-        self.__btn_archivo.configure(text=nombre_pdf)
-
-    def poner_texto_original_btn_buscar_archivo(self) -> None:
-        """ 
-            El nombre del pdf que aparece como texto en el boton se sustituye
-            por su texto que tenia originalmente
-        """
-        self.__btn_archivo.configure(text='Elegir un archivo Pdf')
-
-    # Métodos para controlar el boton para eliminar el pdf
-    def hacer_visible_btn_eliminar_pdf(self) -> None:
-        self.__indicador_pdf.place(relx=0.85, rely=0.15)
-        self.__btn_eliminar_pdf.place(relx=0.83, rely=0.22)
-
-    def hacer_invisible_btn_eliminar_pdf(self) -> None:
-        self.__indicador_pdf.place_forget()
-        self.__btn_eliminar_pdf.place_forget()
-
+    # Métodos generales
     def poner_estado_por_defecto(self) -> None:
         self.habilitar_btn_archivo()
         self.hacer_invisible_btn_eliminar_pdf()
@@ -261,6 +255,22 @@ class VistaRecortar(FrameSeccion):
         self.deshabilitar_input_recorte()
         self.deshabilitar_btn_recortar()
         self.deshabilitar_btn_borrar()
+
+    # Metodos para controlar el texto del boton buscar archivo
+    def poner_nombre_pdf_btn_buscar_archivo(self, nombre_pdf: str) -> None:
+        self.__btn_archivo.configure(text=nombre_pdf)
+
+    def poner_texto_original_btn_buscar_archivo(self) -> None:
+        self.__btn_archivo.configure(text='Elegir un archivo Pdf')
+
+    # Métodos para controlar el boton para eliminar el pdf
+    def hacer_visible_btn_eliminar_pdf(self) -> None:
+        self.__etq_icono_indicador_pdf.place(relx=0.85, rely=0.15)
+        self.__btn_eliminar_pdf.place(relx=0.83, rely=0.22)
+
+    def hacer_invisible_btn_eliminar_pdf(self) -> None:
+        self.__etq_icono_indicador_pdf.place_forget()
+        self.__btn_eliminar_pdf.place_forget()
 
     # Metodos para habilitar los botones
     def habilitar_btn_archivo(self) -> None:
@@ -286,14 +296,9 @@ class VistaRecortar(FrameSeccion):
     def deshabilitar_input_recorte(self) -> None:
         self.__btn_agregar_recorte.configure(state='disabled', cursor='arrow')
         
-        self.__caja_texto_desde.delete(0, 'end')
-        self.__caja_texto_desde._activate_placeholder()
+        self.__resetear_info_cajas_texto()
         self.__caja_texto_desde.configure(state='disabled')
-        
-        self.__caja_texto_hasta.delete(0, 'end')
-        self.__caja_texto_hasta._activate_placeholder()
         self.__caja_texto_hasta.configure(state='disabled')
-        
 
     def deshabilitar_btn_recortar(self) -> None:
         self.__btn_recortar.configure(state='disabled', cursor='arrow',

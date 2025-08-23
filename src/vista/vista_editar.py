@@ -15,7 +15,6 @@ class VistaEditar(FrameSeccion):
     def __init__(self, ventana: CTk):
         super().__init__(ventana, titulo='Edición y personalización del Pdf')
 
-        self.__ventana = ventana
         self.__config = ConfigVista()
         self.__controlador = None
 
@@ -144,10 +143,6 @@ class VistaEditar(FrameSeccion):
 
     # Métodos que gestionan a todos los botones
     def habilitar_botones(self) -> None:
-        """ 
-            Se puede usar tambien para habilitar lo que deshabilita el metodo
-            deshabilitar_opciones_menos_eliminar
-        """
         self.__btn_eliminar_pag.configure(state='normal', cursor='hand2')
         self.__btn_recortar.configure(state='normal', cursor='hand2')
         self.__btn_filtrar.configure(state='normal', cursor='hand2')
@@ -163,6 +158,9 @@ class VistaEditar(FrameSeccion):
                                         fg_color="#106A43", cursor='arrow')
 
     def poner_estado_botones_por_defecto(self) -> None:
+        self.__deseleccionar_botones()
+
+    def __deseleccionar_botones(self) -> None:
         self.deseleccionar_btn_eliminar()
         self.deseleccionar_btn_recortar()
         self.deseleccionar_btn_filtrar()
